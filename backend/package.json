@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "description": "Accessify - Accessibility Scanning Platform",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "dev:api": "pnpm --filter @accessify/api dev",
+  "build:api": "pnpm --filter @accessify/api build"
+},
   "keywords": [],
   "author": "Hashan Athurugiriya",
   "license": "MIT",
