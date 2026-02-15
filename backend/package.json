@@ -4,9 +4,11 @@
   "version": "1.0.0",
   "description": "Accessify - Accessibility Scanning Platform",
   "scripts": {
-  "dev:api": "pnpm --filter @accessify/api dev",
-  "build:api": "pnpm --filter @accessify/api build"
-},
+    "dev:api": "pnpm --filter @accessify/api dev",
+    "dev:worker": "pnpm --filter @accessify/worker dev",
+    "build:api": "pnpm --filter @accessify/api build",
+    "build:worker": "pnpm --filter @accessify/worker build"
+  },
   "keywords": [],
   "author": "Hashan Athurugiriya",
   "license": "MIT",
