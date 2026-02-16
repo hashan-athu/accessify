@@ -17,6 +17,9 @@ importers:
 
   apps/api:
     dependencies:
+      '@accessify/types':
+        specifier: workspace:*
+        version: link:../../packages/types
       bullmq:
         specifier: ^5.69.2
         version: 5.69.2
@@ -54,6 +57,9 @@ importers:
 
   apps/worker:
     dependencies:
+      '@accessify/types':
+        specifier: workspace:*
+        version: link:../../packages/types
       bullmq:
         specifier: ^5.69.2
         version: 5.69.2
@@ -73,6 +79,8 @@ importers:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+
+  packages/types: {}
 
 packages:
 

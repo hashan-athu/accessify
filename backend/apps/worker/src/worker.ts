@@ -1,6 +1,7 @@
 import { Worker } from "bullmq";
 import IORedis from "ioredis";
 import dotenv from "dotenv";
+import { QUEUE_NAMES, ScanJobPayload } from "@accessify/types";
 
 dotenv.config();
 
@@ -11,21 +12,12 @@ const connection = new IORedis(
   },
 );
 
-const worker = new Worker(
-  "scan-queue",
+const worker = new Worker<ScanJobPayload>(
+  QUEUE_NAMES.SCAN,
   async (job) => {
-    console.log("Received job:", job.name, job.data);
-    // We will implement scan logic later
+    console.log("Received job:", job.data);
   },
   { connection },
 );
 
-worker.on("completed", (job) => {
-  console.log(`Job ${job.id} completed`);
-});
-
-worker.on("failed", (job, err) => {
-  console.error(`Job ${job?.id} failed:`, err);
-});
-
-console.log("Worker started and listening to scan-queue...");
+console.log("Worker started and listening...");
