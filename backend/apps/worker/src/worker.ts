@@ -1,9 +1,7 @@
+import "dotenv/config";
 import { Worker } from "bullmq";
 import IORedis from "ioredis";
-import dotenv from "dotenv";
 import { QUEUE_NAMES, ScanJobPayload } from "@accessify/types";
-
-dotenv.config();
 
 const connection = new IORedis(
   process.env.REDIS_URL || "redis://localhost:6379",
@@ -15,7 +13,7 @@ const connection = new IORedis(
 const worker = new Worker<ScanJobPayload>(
   QUEUE_NAMES.SCAN,
   async (job) => {
-    console.log("Received job:", job.data);
+    console.log("Processing scan:", job.data.scanId, job.data.url);
   },
   { connection },
 );
